@@ -1,11 +1,6 @@
 const nacl = require('libsodium-wrappers')
 const Signature = require('../src/Signature')
 
-//Added a beforeAll() function, to make sure libsodium was correctly loaded in (as the loading the library requires are Promise to be fulfilled)
-beforeAll(async () => {
-  await nacl.ready
-})
-
 describe('signing module', () => {
   it('provides a verifying key', async () => {
     expect(await Signature.verifyingKey()).toBeDefined()
